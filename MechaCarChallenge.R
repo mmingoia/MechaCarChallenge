@@ -1,6 +1,7 @@
 # Load Libraries
 library(ggplot2)
 library(tidyverse)
+library(gridExtra)
 
 #Load Data from CSV files
 MPGdata <- read.csv(file='MechaCar_mpg.csv',check.names=F,stringsAsFactors = F)
@@ -13,8 +14,8 @@ MPGMatrix <- as.matrix(MPGdata[,c("vehicle length","vehicle weight","spoiler ang
 cor(MPGMatrix)
 
 # Multiple Linear Regression of 3 of the 5 parameters in the data
-lm(mpg ~ `vehicle length` + `ground clearance` + `vehicle weight`, data = MPGdata)
-summary(lm(mpg ~ `vehicle length` + `ground clearance` + `vehicle weight`, data = MPGdata))
+lm(mpg ~ `vehicle length` + `ground clearance` + `vehicle weight` + AWD, data = MPGdata)
+summary(lm(mpg ~ `vehicle length` + `ground clearance` + `vehicle weight` + AWD , data = MPGdata))
 
 # Part Two of Challenge - Suspension Coil Summary Table
 
@@ -22,6 +23,10 @@ CoilSummary <- as.data.frame(list(Mean = mean(CoilData$PSI),
                     Median = median(CoilData$PSI),
                     Variance = var(CoilData$PSI),
                     StDeviation = sd(CoilData$PSI)))
+
+png("CoilSummary.png", height = 50*nrow(CoilSummary), width = 200*ncol(CoilSummary))
+grid.table(CoilSummary)
+dev.off()
 
 # Part Three of Challenge - Suspension Coil T-Test
 

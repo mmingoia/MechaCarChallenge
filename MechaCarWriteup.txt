@@ -1,0 +1,27 @@
+MPG Regression
+
+In order to chose the variables to include in the regression model I created a correlation matrix to examine how the 5 provided parameters correlated to mpg.  After reviewing the correlation matrix, I choose to build a multiple linear regression model using Vehicle Length, Vehicle Weight, Ground Clearance, and AWD.  These 4 variable apeared to have an impact on the MPG, however the Spoiler angle was not included due to its very low correlation to mpg.
+
+I ran the multiple linear regression in R and the final equation is:
+
+MPG = 6.233069 * (Vehicle Length) + 3.419144 * (Groud Clearance) + 0.001169 * (vehicle weight) - 3.749275 * (AWD) - 97.283317
+
+The slope of the model is not zero because none of the coefficents for the model are zero.  The model's R squared is 0.708, which is over 0.7 indicateing a strong correlation in the regression model.  This leads to the conclusion that the linear model can accuratly predict the mpg of MechaCar prototypes.
+
+Suspension Coil Summary
+
+In order to analyse the suspension coil data, I built a table that summarizes the key statistics of the PSI of the Suspension coil data.  The table includes a Mean of 1,499.531 psi, median of 1,499.747 psi, variance of 76.23459 psi, and standard deviation of 8.731242 psi.  These calcualtion indicate that the design specifications are being met.  The variance is 76 psi, which is lower than the 100 psi maximun variance allowed.
+
+The final step in the Suspension Coil analysis was to perform a t-test to determine is the mean of the sample is statistically different the the mean population results of 1,500 psi.  The results of the t-test have a p-value of 0.5117, which is greater than 0.05.  This indicates that we do not have sufficent evidence to reject the null hypothesis that the true mean is not eqial to 1,500 psi, therefore the mean of the sample and the mean of the population are statistically similar.
+
+Additional Statistical Study 
+
+In order to compare performance of the MechaCar Prototype with other comparable vehicles on the market.  The ultimate goal would be to predicte how to have the largest number of cars sold when compared to our competitors.  Similar to the mpg analysis we would need to collect data that we can perform multivariable analysis to predict the number of sales. 
+
+In order to do this statistical analysis we could collect data on horsepower, MPG, Cost, number of color options, and number of sales for the comparable cars that need to be included in the analysis.  Then a multivarible linear regression could be done to determine how horsepower, MPG, cost, and number of color options are related to the number of sales of the vehicles.  
+
+After this regression analysis was done and if the model appears to be able to predict the number of sales (R squared greater than 0.7) the model will be used to predict the number of sales of the MechaCar Prototypes.  Then the model can be tested with a two-sample t-test.
+
+In the two-sample t-test we will use a Null Hypothesis of the mean number of sales of MechaCars is less than or equal to the mean number of sales of comparable cars.  The Alternative hypothesis will be the mean number of sales of MechaCars is greater than to the mean number of sales of comparable cars.  The data from the MechaCar Prototypes can be loaded as one sample and the data from the comparable cars can be loaded as the second sample.
+
+
